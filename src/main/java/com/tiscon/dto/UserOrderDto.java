@@ -16,6 +16,8 @@ public class UserOrderDto {
 
     private String newAddress;
 
+    private String family;
+    
     private String box;
 
     private String bed;
@@ -80,6 +82,14 @@ public class UserOrderDto {
 
     public void setNewAddress(String newAddress) {
         this.newAddress = newAddress;
+    }
+
+    public int getfamily() {
+        return Integer.parseInt(family);
+    }
+
+    public void setfamily(String family) {
+        this.family = family;
     }
 
     public int getBox() {

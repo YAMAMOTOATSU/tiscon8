@@ -63,7 +63,16 @@
         </div>
       </fieldset>
       <fieldset>
-      <div class="sub-title">お荷物情報</div>
+      <div class="sub-title">お荷物情報（家族の人数で推定します）</div>
+        <div class="form-group">
+          <label for="box">何人家族ですか</label>
+          <select id="family" name="family" class="form-control"> 
+            <option value="1">1~2人</option>
+            <option value="2">3人以上</option>            
+          </select>          
+        </div>
+
+        <!--
         <div class="form-group">
           <label for="box">段ボールの個数</label>
           <input type="text" id="box" name="box" th:field="*{box}" class="form-control" value="10"/>
@@ -88,7 +97,9 @@
             <option th:value="true" th:text="あり">あり</option>
           </select>
         </div>
+        -->
       </fieldset>
+      
       <div class="form-group">
         <div class="text-center">
           <button type="submit" name="backToTop" class="btn-back">TOPへ戻る</button>

@@ -36,6 +36,11 @@ public class UserOrderForm {
     @NotBlank
     private String newAddress;
 
+    
+    @Numeric
+    @NotBlank
+    private String family;
+
     @Numeric
     @NotBlank
     private String box;
@@ -111,6 +116,9 @@ public class UserOrderForm {
         this.newAddress = newAddress;
     }
 
+    public String getfamily() {
+        return family;
+    }
     public String getBox() {
         return box;
     }
@@ -149,5 +157,11 @@ public class UserOrderForm {
 
     public void setWashingMachineInstallation(boolean washingMachineInstallation) {
         this.washingMachineInstallation = washingMachineInstallation;
+    }
+
+
+    
+    public void setfamily(String family) {
+        this.family = family;
     }
 }
