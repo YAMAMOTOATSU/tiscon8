@@ -40,25 +40,28 @@ public class UserOrderForm {
     @Numeric
     @NotBlank
     private String family;
-
-    @Numeric
+    
     @NotBlank
-    private String box;
+    private String date;
 
-    @Numeric
-    @NotBlank
-    private String bed;
+    // @Numeric
+    // @NotBlank
+    // private String box;
 
-    @Numeric
-    @NotBlank
-    private String bicycle;
+    // @Numeric
+    // @NotBlank
+    // private String bed;
 
-    @Numeric
-    @NotBlank
-    private String washingMachine;
+    // @Numeric
+    // @NotBlank
+    // private String bicycle;
 
-    @NotNull
-    private boolean washingMachineInstallation;
+    // @Numeric
+    // @NotBlank
+    // private String washingMachine;
+
+    // @NotNull
+    // private boolean washingMachineInstallation;
 
     // public String getCustomerName() {
     //     return customerName;
@@ -116,52 +119,70 @@ public class UserOrderForm {
         this.newAddress = newAddress;
     }
 
-    public String getfamily() {
+    public String getFamily() {
         return family;
     }
-    public String getBox() {
-        return box;
+
+    public void setFamily(String family) {
+        this.family = family;
     }
 
-    public void setBox(String box) {
-        this.box = box;
+    public String getFamilyMessage() {
+        if (family.equals("1")) {
+            return "1~2人";
+
+        }
+        return "3人以上";
     }
 
-    public String getBed() {
-        return bed;
+    public String getDate() {
+        return date;
     }
 
-    public void setBed(String bed) {
-        this.bed = bed;
+    public void setDate(String date) {
+        this.date = date;
     }
+    // public String getBox() {
+    //     return box;
+    // }
 
-    public String getBicycle() {
-        return bicycle;
-    }
+    // public void setBox(String box) {
+    //     this.box = box;
+    // }
 
-    public void setBicycle(String bicycle) {
-        this.bicycle = bicycle;
-    }
+    // public String getBed() {
+    //     return bed;
+    // }
 
-    public String getWashingMachine() {
-        return washingMachine;
-    }
+    // public void setBed(String bed) {
+    //     this.bed = bed;
+    // }
 
-    public void setWashingMachine(String washingMachine) {
-        this.washingMachine = washingMachine;
-    }
+    // public String getBicycle() {
+    //     return bicycle;
+    // }
 
-    public boolean getWashingMachineInstallation() {
-        return washingMachineInstallation;
-    }
+    // public void setBicycle(String bicycle) {
+    //     this.bicycle = bicycle;
+    // }
 
-    public void setWashingMachineInstallation(boolean washingMachineInstallation) {
-        this.washingMachineInstallation = washingMachineInstallation;
-    }
+    // public String getWashingMachine() {
+    //     return washingMachine;
+    // }
+
+    // public void setWashingMachine(String washingMachine) {
+    //     this.washingMachine = washingMachine;
+    // }
+
+    // public boolean getWashingMachineInstallation() {
+    //     return washingMachineInstallation;
+    // }
+
+    // public void setWashingMachineInstallation(boolean washingMachineInstallation) {
+    //     this.washingMachineInstallation = washingMachineInstallation;
+    // }
 
 
     
-    public void setfamily(String family) {
-        this.family = family;
-    }
+   
 }

@@ -11,6 +11,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,13 +78,26 @@ public class EstimateService {
         // 距離当たりの料金を算出する
         int priceForDistance = distanceInt * PRICE_PER_DISTANCE;
 
-        int boxes = getBoxForPackage(dto.getBox(), PackageType.BOX)
-                + getBoxForPackage(dto.getBed(), PackageType.BED)
-                + getBoxForPackage(dto.getBicycle(), PackageType.BICYCLE)
-                + getBoxForPackage(dto.getWashingMachine(), PackageType.WASHING_MACHINE);
+        // int boxes = getBoxForPackage(dto.getBox(), PackageType.BOX)
+        //         + getBoxForPackage(dto.getBed(), PackageType.BED)
+        //         + getBoxForPackage(dto.getBicycle(), PackageType.BICYCLE)
+        //         + getBoxForPackage(dto.getWashingMachine(), PackageType.WASHING_MACHINE);
+
+        int boxes;
+
+        if (dto.getFamily() == 1){
+            boxes = 80;
+        }
+        else if (dto.getFamily() == 2){
+            boxes = 200;
+        }
+        /*ここには来ない */
+        else {
+            boxes = 0;
+        }
+        
 
         // 箱に応じてトラックの種類が変わり、それに応じて料金が変わるためトラック料金を算出する。
-        
         
         int pricePerTruck = estimateDAO.getPricePerTruck(boxes);
 
@@ -94,7 +108,7 @@ public class EstimateService {
             priceForOptionalService = estimateDAO.getPricePerOptionalService(OptionalServiceType.WASHING_MACHINE.getCode());
         }
 
-        return priceForDistance + pricePerTruck + priceForOptionalService;
+        return (int)((priceForDistance + pricePerTruck) * dto.getDate() + priceForOptionalService);
     }
 
     /**

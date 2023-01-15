@@ -18,6 +18,8 @@ public class UserOrderDto {
 
     private String family;
     
+    private String date;
+
     private String box;
 
     private String bed;
@@ -84,11 +86,19 @@ public class UserOrderDto {
         this.newAddress = newAddress;
     }
 
-    public int getfamily() {
+    public int getFamily() {
         return Integer.parseInt(family);
     }
 
-    public void setfamily(String family) {
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public double getDate() {
+        return Double.parseDouble(date);
+    }
+
+    public void setFamily(String family) {
         this.family = family;
     }
 
