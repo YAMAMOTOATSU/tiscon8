@@ -75,7 +75,13 @@ public class EstimateController {
      * @return 遷移先
      */
     @PostMapping(value = "submit", params = "confirm")
-    String confirm(UserOrderForm userOrderForm, Model model) {
+    String confirm(@Validated UserOrderForm userOrderForm, BindingResult result, Model model) {
+        
+        if (result.hasErrors()) {
+            model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
+            model.addAttribute("userOrderForm", userOrderForm);
+            return "input";
+        }
 
         model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
         model.addAttribute("userOrderForm", userOrderForm);
@@ -139,15 +145,15 @@ public class EstimateController {
     }
 
     /**
-     * 申し込み完了画面に遷移する。
+     * 電話申し込み完了画面に遷移する。
      *
      * @param userOrderForm 顧客が入力した見積もり依頼情報
      * @param result        精査結果
      * @param model         遷移先に連携するデータ
      * @return 遷移先
      */
-    @PostMapping(value = "order", params = "complete")
-    String complete(@Validated UserOrderForm userOrderForm, BindingResult result, Model model) {
+    @PostMapping(value = "order", params = "complete_tel")
+    String completeTel(@Validated UserOrderForm userOrderForm, BindingResult result, Model model) {
         if (result.hasErrors()) {
 
             model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
@@ -155,11 +161,35 @@ public class EstimateController {
             return "confirm";
         }
 
-        UserOrderDto dto = new UserOrderDto();
-        BeanUtils.copyProperties(userOrderForm, dto);
-        estimateService.registerOrder(dto);
+        // UserOrderDto dto = new UserOrderDto();
+        // BeanUtils.copyProperties(userOrderForm, dto);
+        // estimateService.registerOrder(dto);
 
-        return "complete";
+        return "complete_tel";
+    }
+
+    /**
+     * WEB申し込み完了画面に遷移する。
+     *
+     * @param userOrderForm 顧客が入力した見積もり依頼情報
+     * @param result        精査結果
+     * @param model         遷移先に連携するデータ
+     * @return 遷移先
+     */
+    @PostMapping(value = "order", params = "complete_web")
+    String completeWeb(@Validated UserOrderForm userOrderForm, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+
+            model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
+            model.addAttribute("userOrderForm", userOrderForm);
+            return "confirm";
+        }
+
+        // UserOrderDto dto = new UserOrderDto();
+        // BeanUtils.copyProperties(userOrderForm, dto);
+        // estimateService.registerOrder(dto);
+
+        return "complete_web";
     }
 
 }

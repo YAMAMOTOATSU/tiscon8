@@ -13,16 +13,16 @@ import javax.validation.constraints.NotNull;
  */
 public class UserOrderForm {
 
-    @NotBlank
-    private String customerName;
+    // @NotBlank
+    // private String customerName;
 
-    @NotBlank
-    @Numeric
-    private String tel;
+    // @NotBlank
+    // @Numeric
+    // private String tel;
 
-    @Email
-    @NotBlank
-    private String email;
+    // @Email
+    // @NotBlank
+    // private String email;
 
     @NotBlank
     private String oldPrefectureId;
@@ -55,29 +55,29 @@ public class UserOrderForm {
     @NotNull
     private boolean washingMachineInstallation;
 
-    public String getCustomerName() {
-        return customerName;
-    }
+    // public String getCustomerName() {
+    //     return customerName;
+    // }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
+    // public void setCustomerName(String customerName) {
+    //     this.customerName = customerName;
+    // }
 
-    public String getTel() {
-        return tel;
-    }
+    // public String getTel() {
+    //     return tel;
+    // }
 
-    public void setTel(String tel) {
-        this.tel = tel;
-    }
+    // public void setTel(String tel) {
+    //     this.tel = tel;
+    // }
 
-    public String getEmail() {
-        return email;
-    }
+    // public String getEmail() {
+    //     return email;
+    // }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    // public void setEmail(String email) {
+    //     this.email = email;
+    // }
 
     public String getOldPrefectureId() {
         return oldPrefectureId;
